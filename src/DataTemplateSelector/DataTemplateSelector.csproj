@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,7 +29,6 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="DataTemplateSelectorPage.xaml" />
     <EmbeddedResource Include="QuestionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -41,16 +40,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataTemplateSelectorPage.xaml.cs">
-      <DependentUpon>DataTemplateSelectorPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\FeedItem.cs" />
-    <Compile Include="Models\FeedItemType.cs" />
-    <Compile Include="Models\FeedItemText.cs" />
-    <Compile Include="Models\FeedItemImage.cs" />
-    <Compile Include="FeedItemSelector.cs" />
-    <Compile Include="ViewModels\FeedItemViewModel.cs" />
     <Compile Include="ViewModels\BaseQuestionViewModel.cs" />
     <Compile Include="ViewModels\ContactQuestionViewModel.cs" />
     <Compile Include="Models\ContactQuestion.cs" />
@@ -68,11 +58,7 @@
     <Compile Include="ViewModels\MultiChoiceQuestionViewModel.cs" />
     <Compile Include="Models\MultiChoiceQuestion.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>

@@ -9,8 +9,6 @@ namespace DataTemplateSelector
         {
             InitializeComponent();
 
-
-            //MainPage = new DataTemplateSelectorPage();
             MainPage = new QuestionPage();
         }
 

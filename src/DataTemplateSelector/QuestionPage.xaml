@@ -1,72 +1,83 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:local="clr-namespace:DataTemplateSelector" 
-    xmlns:views="clr-namespace:DataTemplateSelector.Views" Padding="0,20,0,0"
-
-    x:Class="DataTemplateSelector.QuestionPage">
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="DataTemplateSelector.QuestionPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:DataTemplateSelector"
+    xmlns:views="clr-namespace:DataTemplateSelector.Views"
+    Padding="0,20,0,0">
     <ContentPage.Resources>
         <ResourceDictionary>
+            <!--  inline template for text editor questions  -->
             <DataTemplate x:Key="textItemTemplate">
-                <ViewCell Height="200" >
+                <ViewCell Height="200">
 
-                     <Grid BackgroundColor="#EEFFEE" Padding="10">
+                    <Grid Padding="10" BackgroundColor="#EEFFEE">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="AUTO"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                         <Label Text="{Binding Question}"/>
-                        <Editor Text="{Binding Response}" Grid.Row="1" VerticalOptions="Fill" BackgroundColor="#EEEEEE"/>
+                        <Label Text="{Binding Question}" />
+                        <Editor
+                            Grid.Row="1"
+                            BackgroundColor="#EEEEEE"
+                            Text="{Binding Response}"
+                            VerticalOptions="Fill" />
 
                     </Grid>
                 </ViewCell>
             </DataTemplate>
+
+            <!--  inline template for contat details questions  -->
             <DataTemplate x:Key="contactItemTemplate">
                 <ViewCell>
-                   <Grid BackgroundColor="#FFEEEE" Padding="10">
+                    <Grid Padding="10" BackgroundColor="#FFEEEE">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="AUTO"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        
-                        <Label Text="{Binding Question}"/>
+
+                        <Label Text="{Binding Question}" />
 
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="AUTO"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="AUTO"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="AUTO" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="AUTO" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            
-                            <Label Grid.Column="0" Text="First" VerticalOptions="Center"/>
-                            <Entry Grid.Column="1" Text="{Binding FirstName}"/>
-                            <Label Grid.Column="2" Text="Last" VerticalOptions="Center"/>
-                            <Entry Grid.Column="3" Text="{Binding LastName}"/>
+
+                            <Label Grid.Column="0" Text="First" VerticalOptions="Center" />
+                            <Entry Grid.Column="1" Text="{Binding FirstName}" />
+                            <Label Grid.Column="2" Text="Last" VerticalOptions="Center" />
+                            <Entry Grid.Column="3" Text="{Binding LastName}" />
                         </Grid>
                     </Grid>
                 </ViewCell>
             </DataTemplate>
+
+            <!--  using a view as a template, so this allows cleaner xaml by declaring the template elsewhere  -->
             <DataTemplate x:Key="multichoiceItemTemplate">
                 <ViewCell>
-                    <!--<BoxView BackgroundColor="Red"/>-->
                     <views:MultichoiceView />
                 </ViewCell>
             </DataTemplate>
-            
-            <local:QuestionSelector x:Key="questionDataTemplateSelector"
-                TextTemplate="{StaticResource textItemTemplate}"
-                ContactTemplate="{StaticResource contactItemTemplate}" 
-                MultichoiceTemplate="{StaticResource multichoiceItemTemplate}"/>
-            
+
+            <local:QuestionSelector
+                x:Key="questionDataTemplateSelector"
+                ContactTemplate="{StaticResource contactItemTemplate}"
+                MultichoiceTemplate="{StaticResource multichoiceItemTemplate}"
+                TextTemplate="{StaticResource textItemTemplate}" />
+
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ListView x:Name="listView" 
-        ItemTemplate="{StaticResource questionDataTemplateSelector}"
+    <ListView
+        x:Name="listView"
         HasUnevenRows="true"
-        ItemsSource="{Binding .}"
-        ItemSelected="Handle_ItemSelected"/>
+        ItemSelected="Handle_ItemSelected"
+        ItemTemplate="{StaticResource questionDataTemplateSelector}"
+        ItemsSource="{Binding .}" />
 
-    
+
 </ContentPage>
