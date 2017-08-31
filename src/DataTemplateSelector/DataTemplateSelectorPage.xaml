@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:DataTemplateSelector" 
+    x:Class="DataTemplateSelector.DataTemplateSelectorPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="textFeedItemTemplate">
+                <ViewCell>
+                   <BoxView BackgroundColor="Red"/>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="imageFeedItemTemplate">
+                <ViewCell>
+                   <BoxView BackgroundColor="Green"/>
+                </ViewCell>
+            </DataTemplate>
+            <local:FeedItemSelector x:Key="feedItemDataTemplateSelector"
+                TextTemplate="{StaticResource textFeedItemTemplate}"
+                ImageTemplate="{StaticResource imageFeedItemTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ListView x:Name="listView" 
+    ItemTemplate="{StaticResource feedItemDataTemplateSelector}"
+    ItemsSource="{Binding .}"/>
+ 
+</ContentPage>

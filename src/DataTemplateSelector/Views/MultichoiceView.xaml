@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:y="http://schemas.microsoft.com/winfx/2009/xaml" 
+    y:Class="DataTemplateSelector.Views.MultichoiceView">
+
+        <Grid BackgroundColor="#EEEEFF" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="{Binding Question}"/>
+
+        
+           <StackLayout Grid.Row="1" Orientation="Horizontal">
+                <Switch IsToggled="{Binding Option1Value}" />
+                <Label Text="{Binding Option1Text}" VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Orientation="Horizontal">
+                <Switch IsToggled="{Binding Option2Value}"/>
+                <Label Text="{Binding Option2Text}" VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Grid.Row="3" Orientation="Horizontal">
+                <Switch IsToggled="{Binding Option3Value}"/>
+                <Label Text="{Binding Option3Text}" VerticalOptions="Center"/>
+            </StackLayout>
+
+
+        </Grid>
+            
+</ContentView>
