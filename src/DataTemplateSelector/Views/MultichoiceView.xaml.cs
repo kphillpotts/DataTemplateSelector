@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace DataTemplateSelector.Views
 {
-    public partial class MultichoiceView : ContentView
+    public partial class MultichoiceView : ViewCell
     {
         public MultichoiceView()
         {

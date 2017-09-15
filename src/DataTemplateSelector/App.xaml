@@ -1,6 +1,36 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DataTemplateSelector.App">
-	<Application.Resources>
-		<!-- Application resource dictionary -->
-	</Application.Resources>
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application x:Class="DataTemplateSelector.App" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <!--  Application resource dictionary  -->
+        <ResourceDictionary>
+
+            <!--  application level template for contat details questions  -->
+            <DataTemplate x:Key="contactItemTemplate">
+                <ViewCell>
+                    <Grid Padding="10" BackgroundColor="#b9f6ca">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Label Text="{Binding Question}" />
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="AUTO" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="AUTO" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" Text="First" VerticalOptions="Center" />
+                            <Entry Grid.Column="1" Text="{Binding FirstName}" />
+                            <Label Grid.Column="2" Text="Last" VerticalOptions="Center" />
+                            <Entry Grid.Column="3" Text="{Binding LastName}" />
+                        </Grid>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
